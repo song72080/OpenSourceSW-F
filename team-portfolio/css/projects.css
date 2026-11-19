@@ -1,0 +1,61 @@
+:root {
+  --bg:#f7f9fc;
+  --ink:#14233b;
+  --muted:#62718a;
+  --accent:#4d65e8;
+  --line:#dce3ee;
+  --card:#fff
+}
+/* 색 변수 */
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px
+}
+.card {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 6px 24px #192f5c09
+}
+.card h3 {
+  margin:6px 0 8px
+}
+.card p {
+  color:var(--muted)
+}
+.tag {
+  display:inline-block;
+  background:#edf0ff;
+  color:#4358bc;
+  padding:3px 10px;
+  border-radius:30px;
+  font-size:.82rem;
+  font-weight:700
+}
+/* 그리드,카드,태그 */
+
+.filters {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:0 0 22px
+}
+.filter {
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:20px;
+  padding:8px 16px
+}
+.filter[aria-pressed=true] {
+  background:var(--accent);
+  color:#fff
+}
+/* 필터 버튼 */
+
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+}
+/* 모바일용 규칙 */
