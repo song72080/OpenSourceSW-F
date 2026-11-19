@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITLOG | 운동 기록</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo-mark">F</div>
+      <h1>FITLOG</h1>
+      <p>나의 운동을 간단하게 기록하는 공간</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <span class="eyebrow">MY WORKOUT NOTE</span>
+      <h2>오늘도 꾸준하게</h2>
+      <p>작은 기록이 모여 건강한 습관이 됩니다.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <h2>운동 목록</h2>
+      </div>
+      <ul class="exercise-list">
+        <li><strong>벤치프레스</strong><span>가슴 운동</span></li>
+        <li><strong>스쿼트</strong><span>하체 운동</span></li>
+        <li><strong>랫풀다운</strong><span>등 운동</span></li>
+        <li><strong>숄더프레스</strong><span>어깨 운동</span></li>
+        <li><strong>러닝</strong><span>유산소 운동</span></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <h2>운동 기록하기</h2>
+      </div>
+      <form id="workout-form">
+        <label for="exercise">운동 이름</label>
+        <input id="exercise" type="text" placeholder="예: 벤치프레스" required>
+
+        <label for="duration">운동 시간 (분)</label>
+        <input id="duration" type="number" min="1" placeholder="예: 30" required>
+
+        <button type="submit">기록 추가</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <h2>나의 운동 기록</h2>
+      </div>
+      <p id="empty-message">아직 등록된 운동 기록이 없습니다.</p>
+      <ul id="record-list" class="record-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>FITLOG <span>·</span> 나의 작은 운동 습관</p>
+  </footer>
+</body>
+</html>
