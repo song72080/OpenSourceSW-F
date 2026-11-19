@@ -3,68 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FITLOG | 운동 기록</title>
+  <meta name="description" content="HTML과 CSS만으로 만든 FITLOG 운동 관리 페이지">
+  <title>FITLOG | 나의 운동 노트</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
 </head>
 <body>
-  <header>
+  <header class="site-header" id="top">
     <div class="header-inner">
-      <div class="logo-mark">F</div>
-      <h1>FITLOG</h1>
-      <p>나의 운동을 간단하게 기록하는 공간</p>
+      <a class="brand" href="#top" aria-label="FITLOG 홈">
+        <span class="brand-mark">F</span>
+        <span>FITLOG</span>
+      </a>
+      <nav class="main-nav" aria-label="주요 메뉴">
+        <a href="#workouts">운동 목록</a>
+        <a href="#routine">오늘의 체크</a>
+        <a href="#guide">운동 가이드</a>
+      </nav>
+      <a class="header-cta" href="#routine">운동 시작하기 <span>↗</span></a>
     </div>
   </header>
 
-  <main>
-    <section class="intro">
-      <span class="eyebrow">MY WORKOUT NOTE</span>
-      <h2>오늘도 꾸준하게</h2>
-      <p>작은 기록이 모여 건강한 습관이 됩니다.</p>
-    </section>
-
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-number">01</span>
-        <h2>운동 목록</h2>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="live-dot"></span> YOUR DAILY FITNESS SPACE</span>
+        <h1>오늘의 움직임이<br><em>내일의 나</em>를 만듭니다.</h1>
+        <p>나에게 맞는 운동을 살펴보고, 오늘 실천할 운동을 체크해 보세요.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#workouts">운동 둘러보기 <span>→</span></a>
+          <a class="text-link" href="#guide">처음 이용하시나요?</a>
+        </div>
       </div>
-      <ul class="exercise-list">
-        <li><strong>벤치프레스</strong><span>가슴 운동</span></li>
-        <li><strong>스쿼트</strong><span>하체 운동</span></li>
-        <li><strong>랫풀다운</strong><span>등 운동</span></li>
-        <li><strong>숄더프레스</strong><span>어깨 운동</span></li>
-        <li><strong>러닝</strong><span>유산소 운동</span></li>
-      </ul>
-    </section>
-
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-number">02</span>
-        <h2>운동 기록하기</h2>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+        <div class="art-card"><span class="art-label">MOVE YOUR BODY</span><strong>01</strong><span class="art-caption">ONE DAY<br>AT A TIME</span></div>
+        <span class="art-star star-one">✳</span><span class="art-star star-two">✦</span>
       </div>
-      <form id="workout-form">
-        <label for="exercise">운동 이름</label>
-        <input id="exercise" type="text" placeholder="예: 벤치프레스" required>
-
-        <label for="duration">운동 시간 (분)</label>
-        <input id="duration" type="number" min="1" placeholder="예: 30" required>
-
-        <button type="submit">기록 추가</button>
-      </form>
+      <div class="hero-bottom"><span>01 / START SMALL</span><span>CONSISTENCY OVER PERFECTION</span></div>
     </section>
 
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-number">03</span>
-        <h2>나의 운동 기록</h2>
+    <section class="section" id="workouts">
+      <div class="section-top">
+        <div><span class="section-kicker">CHOOSE YOUR MOVEMENT</span><h2>운동 목록</h2><p>관심 있는 운동을 선택해 자세한 설명을 확인하세요.</p></div>
+        <span class="count-badge">TOTAL <b>05</b></span>
       </div>
-      <p id="empty-message">아직 등록된 운동 기록이 없습니다.</p>
-      <ul id="record-list" class="record-list"></ul>
+
+      <div class="filter-area">
+        <input type="radio" name="category" id="all" checked>
+        <input type="radio" name="category" id="strength">
+        <input type="radio" name="category" id="cardio">
+        <div class="filter-tabs" role="group" aria-label="운동 종류 필터">
+          <label for="all">전체 보기</label><label for="strength">근력 운동</label><label for="cardio">유산소 운동</label>
+        </div>
+        <div class="exercise-grid">
+          <article class="exercise-card strength-card">
+            <div class="card-visual visual-chest"><span class="visual-number">01</span><span class="visual-symbol">↗</span><span class="visual-word">CHEST</span></div>
+            <div class="card-content"><div class="card-meta"><span>근력 운동</span><span>상체</span></div><h3>벤치프레스</h3><p>가슴 근육을 중심으로 상체 근력을 기르는 운동</p><details><summary>운동 설명 보기</summary><p>벤치에 등을 대고 누워 바벨을 가슴 방향으로 내렸다가 밀어 올리는 운동입니다. 본인에게 맞는 무게와 자세를 우선하세요.</p></details></div>
+          </article>
+          <article class="exercise-card strength-card">
+            <div class="card-visual visual-leg"><span class="visual-number">02</span><span class="visual-symbol">↗</span><span class="visual-word">LOWER</span></div>
+            <div class="card-content"><div class="card-meta"><span>근력 운동</span><span>하체</span></div><h3>스쿼트</h3><p>허벅지와 엉덩이를 포함한 하체 근육 운동</p><details><summary>운동 설명 보기</summary><p>발을 어깨너비 정도로 벌리고 엉덩이를 뒤로 보내며 앉았다 일어납니다. 허리와 무릎의 편안한 정렬을 유지하세요.</p></details></div>
+          </article>
+          <article class="exercise-card strength-card">
+            <div class="card-visual visual-back"><span class="visual-number">03</span><span class="visual-symbol">↗</span><span class="visual-word">BACK</span></div>
+            <div class="card-content"><div class="card-meta"><span>근력 운동</span><span>등</span></div><h3>랫풀다운</h3><p>등 근육을 사용하는 대표적인 당기기 운동</p><details><summary>운동 설명 보기</summary><p>바를 어깨보다 넓게 잡고 가슴 윗부분 방향으로 당깁니다. 반동을 줄이고 천천히 움직여 보세요.</p></details></div>
+          </article>
+          <article class="exercise-card strength-card">
+            <div class="card-visual visual-shoulder"><span class="visual-number">04</span><span class="visual-symbol">↗</span><span class="visual-word">SHOULDER</span></div>
+            <div class="card-content"><div class="card-meta"><span>근력 운동</span><span>어깨</span></div><h3>숄더프레스</h3><p>어깨 근육을 중심으로 상체를 단련하는 운동</p><details><summary>운동 설명 보기</summary><p>덤벨이나 머신을 이용해 어깨 높이에서 위쪽으로 밀어 올립니다. 무리한 중량보다 안정적인 동작이 중요합니다.</p></details></div>
+          </article>
+          <article class="exercise-card cardio-card">
+            <div class="card-visual visual-run"><span class="visual-number">05</span><span class="visual-symbol">↗</span><span class="visual-word">CARDIO</span></div>
+            <div class="card-content"><div class="card-meta"><span>유산소 운동</span><span>전신</span></div><h3>러닝</h3><p>걷기와 달리기를 통해 심폐 지구력을 기르는 운동</p><details><summary>운동 설명 보기</summary><p>가벼운 속도로 시작해 몸 상태에 맞게 속도와 시간을 조절합니다. 운동 전후로 천천히 걷는 시간을 가져보세요.</p></details></div>
+          </article>
+        </div>
+        <p class="filter-note">※ 운동 종류 탭을 누르면 해당 운동만 볼 수 있습니다.</p>
+      </div>
     </section>
+
+    <section class="section routine-section" id="routine">
+      <div class="section-top">
+        <div><span class="section-kicker">YOUR DAILY CHECKLIST</span><h2>오늘의 운동 체크</h2><p>오늘 할 운동을 선택하고 완료한 항목에 체크해 보세요.</p></div>
+        <span class="today-tag">TODAY'S PLAN</span>
+      </div>
+      <div class="routine-layout">
+        <div class="check-panel">
+          <div class="check-panel-heading"><div><span class="mini-label">WORKOUT CHECKLIST</span><h3>오늘 실천할 운동</h3></div><span class="check-icon">✓</span></div>
+          <div class="check-list">
+            <input type="checkbox" id="task1"><label for="task1"><span class="fake-check">✓</span><span class="task-text"><b>벤치프레스</b><small>가슴 · 근력 운동</small></span><span class="task-tag">CHEST</span></label>
+            <input type="checkbox" id="task2"><label for="task2"><span class="fake-check">✓</span><span class="task-text"><b>스쿼트</b><small>하체 · 근력 운동</small></span><span class="task-tag">LEG</span></label>
+            <input type="checkbox" id="task3"><label for="task3"><span class="fake-check">✓</span><span class="task-text"><b>랫풀다운</b><small>등 · 근력 운동</small></span><span class="task-tag">BACK</span></label>
+            <input type="checkbox" id="task4"><label for="task4"><span class="fake-check">✓</span><span class="task-text"><b>숄더프레스</b><small>어깨 · 근력 운동</small></span><span class="task-tag">SHOULDER</span></label>
+            <input type="checkbox" id="task5"><label for="task5"><span class="fake-check">✓</span><span class="task-text"><b>러닝</b><small>전신 · 유산소 운동</small></span><span class="task-tag">CARDIO</span></label>
+          </div>
+          <p class="check-footnote">체크 상태는 현재 페이지에서만 표시되며, 새로고침하면 초기화됩니다.</p>
+        </div>
+        <aside class="tip-panel"><span class="tip-icon">✳</span><span class="mini-label">A LITTLE REMINDER</span><h3>완벽함보다<br>꾸준함이 중요해요.</h3><p>처음부터 많은 운동을 하기보다 내 몸에 맞는 작은 목표부터 시작해 보세요.</p><a href="#guide">운동 팁 확인하기 <span>→</span></a></aside>
+      </div>
+    </section>
+
+    <section class="section guide-section" id="guide">
+      <div class="section-top"><div><span class="section-kicker">FITLOG GUIDE</span><h2>운동 전 확인하기</h2><p>안전하고 꾸준한 운동을 위한 간단한 안내입니다.</p></div></div>
+      <div class="guide-grid">
+        <article class="guide-card"><span>01</span><h3>준비 운동</h3><p>운동을 시작하기 전 가벼운 움직임으로 몸을 준비하세요.</p></article>
+        <article class="guide-card"><span>02</span><h3>내 몸에 맞게</h3><p>무게와 운동 시간은 현재 체력과 컨디션에 맞춰 조절하세요.</p></article>
+        <article class="guide-card"><span>03</span><h3>휴식도 운동</h3><p>충분한 휴식과 수분 섭취도 운동 과정의 일부입니다.</p></article>
+      </div>
+    </section>
+    <div class="back-top"><a href="#top">↑ <span>맨 위로</span></a></div>
   </main>
 
-  <footer>
-    <p>FITLOG <span>·</span> 나의 작은 운동 습관</p>
-  </footer>
+  <footer><a class="footer-brand" href="#top">FITLOG</a><p>나의 작은 운동 습관 <span>·</span> MOVE A LITTLE, EVERY DAY.</p><small>HTML &amp; CSS ONLY</small></footer>
 </body>
 </html>
