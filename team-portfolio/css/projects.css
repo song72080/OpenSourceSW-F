@@ -59,3 +59,8 @@
   .grid{grid-template-columns:1fr}
 }
 /* 모바일용 규칙 */
+
+/* 카드 안 버튼을 카드 아래 가운데에 맞춤 */
+.grid .card{display:flex;flex-direction:column;align-items:flex-start}
+.grid .card[hidden]{display:none}
+.grid .card .btn{margin-top:auto;align-self:center}
