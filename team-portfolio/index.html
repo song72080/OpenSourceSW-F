@@ -36,9 +36,31 @@
     .map-picker { position: absolute; z-index: 5; min-width: 180px; padding: 14px; border: 1px solid #45484c; border-radius: 12px; background: #191b1e; box-shadow: 0 8px 24px rgba(0, 0, 0, .45); text-align: left; transform: translate(-50%, 12px); }
     .map-picker[hidden] { display: none; }
     .map-picker p { margin: 0 0 10px; padding-right: 22px; color: #d1d5db; font-size: 13px; }
-    .map-picker a { display: block; margin-top: 6px; padding: 9px 12px; border: 1px solid #45484c; border-radius: 8px; color: #fff; text-decoration: none; font-size: 14px; }
-    .map-picker a:hover, .map-picker a:focus { border-color: #fff; background: #242629; }
-    .map-picker button { position: absolute; top: 8px; right: 10px; border: 0; background: none; color: #9ca3af; font-size: 18px; cursor: pointer; }
+    .map-picker button.picker-member-btn { display: block; width: 100%; margin-top: 6px; padding: 9px 12px; border: 1px solid #45484c; border-radius: 8px; background: none; color: #fff; text-align: left; font-size: 14px; cursor: pointer; }
+    .map-picker button.picker-member-btn:hover, .map-picker button.picker-member-btn:focus { border-color: #fff; background: #242629; outline: none; }
+    .map-picker button.picker-close { position: absolute; top: 8px; right: 10px; border: 0; background: none; color: #9ca3af; font-size: 18px; cursor: pointer; }
+
+    /* 프로필 팝업 모달 */
+    .member-modal-backdrop { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(0, 0, 0, .68); }
+    .member-modal-backdrop[hidden] { display: none; }
+    .member-modal { position: relative; width: min(640px, 100%); padding: 36px 28px 24px; border: 1px solid #45484c; border-radius: 16px; background: #1d1f22; color: #fff; box-shadow: 0 16px 40px rgba(0, 0, 0, .55); text-align: left; }
+    .member-modal-close { position: absolute; top: 12px; right: 14px; border: 0; background: none; color: #9ca3af; font-size: 22px; line-height: 1; cursor: pointer; }
+    .member-modal-close:hover, .member-modal-close:focus { color: #fff; outline: none; }
+    .member-modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+    .member-modal-col { display: flex; flex-direction: column; gap: 14px; }
+    .member-modal-photo-box { flex: 1; min-height: 210px; border: 1px solid #45484c; border-radius: 14px; background: #242629; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .member-modal-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .member-modal-photo-fallback { color: #9ca3af; font-size: 14px; }
+    .member-modal-name-box { padding: 14px 20px; border: 1px solid #45484c; border-radius: 999px; background: #242629; text-align: center; }
+    .member-modal-region { margin: 0 0 2px; color: #9ca3af; font-size: 12px; }
+    .member-modal-name { margin: 0; font-size: 22px; color: #fff; }
+    .member-modal-card { padding: 16px 18px; border: 1px solid #45484c; border-radius: 14px; background: #242629; }
+    .member-modal-card.edu-card { flex: 1; }
+    .member-modal-label { display: block; margin-bottom: 6px; color: #9ca3af; font-size: 12px; font-weight: 700; }
+    .member-modal-text { margin: 0; color: #e5e7eb; font-size: 14px; line-height: 1.6; word-break: keep-all; }
+    .member-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+    .member-modal-link { display: inline-block; padding: 10px 16px; border: 1px solid #fff; border-radius: 8px; background: #fff; color: #17191f; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .member-modal-link:hover, .member-modal-link:focus { background: #e5e7eb; }
 
     .home-desc { max-width: 760px; margin: 40px auto 0; padding: 28px 32px; border: 1px solid #45484c; border-radius: 16px; background: #1d1f22; }
     .home-desc h2 { margin: 0 0 10px; font-size: 22px; color: #fff; }
@@ -50,6 +72,7 @@
       .home-main { padding: 40px 16px 48px; }
       .home-title { font-size: 23px; }
       .home-desc { padding: 22px 20px; }
+      .member-modal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -116,12 +139,47 @@
         </svg>
         <div class="map-pin" id="map-pin" hidden></div>
         <div class="map-picker" id="map-picker" hidden>
-          <button type="button" id="picker-close" aria-label="닫기">×</button>
+          <button type="button" class="picker-close" id="picker-close" aria-label="닫기">×</button>
           <p id="picker-title"></p>
           <div id="picker-list"></div>
         </div>
       </div>
       <p class="map-info" id="map-info" aria-live="polite"></p>
+
+      <div class="member-modal-backdrop" id="member-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-member-name">
+        <div class="member-modal">
+          <button type="button" class="member-modal-close" id="modal-close" aria-label="팝업 닫기">×</button>
+          <div class="member-modal-grid">
+            <div class="member-modal-col">
+              <div class="member-modal-photo-box">
+                <img class="member-modal-photo" id="modal-member-photo" src="" alt="">
+                <span class="member-modal-photo-fallback" id="modal-member-photo-fallback" hidden>프로필 사진</span>
+              </div>
+              <div class="member-modal-card">
+                <span class="member-modal-label">좌우명</span>
+                <p class="member-modal-text" id="modal-member-motto"></p>
+              </div>
+            </div>
+            <div class="member-modal-col">
+              <div class="member-modal-name-box">
+                <p class="member-modal-region" id="modal-member-region"></p>
+                <h2 class="member-modal-name" id="modal-member-name"></h2>
+              </div>
+              <div class="member-modal-card edu-card">
+                <span class="member-modal-label">학력</span>
+                <p class="member-modal-text" id="modal-member-education"></p>
+              </div>
+              <div class="member-modal-card">
+                <span class="member-modal-label">작품</span>
+                <p class="member-modal-text" id="modal-member-made"></p>
+              </div>
+            </div>
+          </div>
+          <div class="member-modal-actions">
+            <a class="member-modal-link" id="modal-member-link" href="members.html">프로필 자세히 보기</a>
+          </div>
+        </div>
+      </div>
 
       <section class="home-desc">
         <h2>다른 출발점에서 하나의 결과물로, FORK</h2>
@@ -155,12 +213,60 @@
 
   <script>
     const members = {
-      chanjin: { name: '박찬진', profile: 'members.html#chanjin' },
-      junhwi: { name: '김준휘', profile: 'members.html#junhwi' },
-      yejin: { name: '정예진', profile: 'members.html#yejin' },
-      junhyeok: { name: '송준혁', profile: 'members.html#junhyeok' },
-      seyunLim: { name: '임세윤', profile: 'members.html#seyun-lim' },
-      seyunHwang: { name: '황세윤', profile: 'members.html#seyun-hwang' }
+      chanjin: {
+        name: '박찬진',
+        region: '전남 순천',
+        photo: 'images/pcj.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#chanjin'
+      },
+      junhwi: {
+        name: '김준휘',
+        region: '전남 완도',
+        photo: 'images/kjh.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#junhwi'
+      },
+      yejin: {
+        name: '정예진',
+        region: '충남 아산',
+        photo: 'images/jyj.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#yejin'
+      },
+      junhyeok: {
+        name: '송준혁',
+        region: '충남 아산',
+        photo: 'images/sjh.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#junhyeok'
+      },
+      seyunLim: {
+        name: '임세윤',
+        region: '인천',
+        photo: 'images/isy.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#seyun-lim'
+      },
+      seyunHwang: {
+        name: '황세윤',
+        region: '대구',
+        photo: 'images/hsy.png',
+        education: '해당 칸에 학력을 입력하세요.',
+        motto: '해당 칸에 좌우명을 입력하세요.',
+        made: '해당 칸에 제작한 작품을 입력하세요.',
+        profile: 'members.html#seyun-hwang'
+      }
     };
 
     const areaMembers = {
@@ -178,6 +284,24 @@
     const picker = document.getElementById('map-picker');
     const pickerTitle = document.getElementById('picker-title');
     const pickerList = document.getElementById('picker-list');
+
+    const modal = document.getElementById('member-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalPhoto = document.getElementById('modal-member-photo');
+    const modalPhotoFallback = document.getElementById('modal-member-photo-fallback');
+    const modalRegion = document.getElementById('modal-member-region');
+    const modalName = document.getElementById('modal-member-name');
+    const modalEducation = document.getElementById('modal-member-education');
+    const modalMotto = document.getElementById('modal-member-motto');
+    const modalMade = document.getElementById('modal-member-made');
+    const modalLink = document.getElementById('modal-member-link');
+
+    modalPhoto.addEventListener('error', function () {
+      modalPhoto.hidden = true;
+      modalPhotoFallback.hidden = false;
+    });
+
+    let lastFocusedElement = null;
 
     function clearActive() {
       mapSvg.querySelectorAll('.area.active').forEach(function (area) {
@@ -202,18 +326,60 @@
       picker.hidden = true;
     }
 
-    function openPicker(area, names) {
+    function openMemberModal(memberId, regionLabel) {
+      const member = members[memberId];
+      if (!member) {
+        return;
+      }
+      lastFocusedElement = document.activeElement;
+      closePicker();
+      modalPhoto.hidden = false;
+      modalPhotoFallback.hidden = true;
+      modalPhoto.src = member.photo || '';
+      modalPhoto.alt = member.name + ' 프로필 사진';
+      modalRegion.textContent = regionLabel || member.region;
+      modalName.textContent = member.name;
+      modalEducation.textContent = member.education;
+      modalMotto.textContent = member.motto;
+      modalMade.textContent = member.made;
+      modalLink.href = member.profile;
+      modal.hidden = false;
+      modalClose.focus();
+    }
+
+    function closeMemberModal() {
+      if (modal.hidden) {
+        return;
+      }
+      modal.hidden = true;
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
+    }
+
+    function openPicker(area, ids) {
       const boxRect = mapBox.getBoundingClientRect();
       const areaRect = area.getBoundingClientRect();
       picker.style.left = (areaRect.left + areaRect.width / 2 - boxRect.left) + 'px';
       picker.style.top = (areaRect.bottom - boxRect.top) + 'px';
       pickerTitle.textContent = area.dataset.label + ' 출신 팀원을 선택하세요';
-      pickerList.innerHTML = names.map(function (id) {
-        return '<a href="' + members[id].profile + '">' + members[id].name + '</a>';
+      pickerList.innerHTML = ids.map(function (id) {
+        return '<button type="button" class="picker-member-btn" data-member="' + id + '">' + members[id].name + '</button>';
       }).join('');
       picker.hidden = false;
-      pickerList.querySelector('a').focus();
+      pickerList.querySelector('button').focus();
     }
+
+    pickerList.addEventListener('click', function (event) {
+      const btn = event.target.closest('.picker-member-btn');
+      if (!btn) {
+        return;
+      }
+      const memberId = btn.dataset.member;
+      const currentRegion = pickerTitle.textContent.replace(' 출신 팀원을 선택하세요', '');
+      openMemberModal(memberId, currentRegion);
+    });
 
     Object.keys(areaMembers).forEach(function (areaId) {
       const area = document.getElementById(areaId);
@@ -237,7 +403,7 @@
 
       function go() {
         if (ids.length === 1) {
-          location.href = members[ids[0]].profile;
+          openMemberModal(ids[0], area.dataset.label);
         } else {
           openPicker(area, ids);
         }
@@ -245,7 +411,11 @@
 
       area.addEventListener('mouseenter', show);
       area.addEventListener('focus', show);
-      area.addEventListener('blur', clearActive);
+      area.addEventListener('blur', function () {
+        if (picker.hidden && modal.hidden) {
+          clearActive();
+        }
+      });
       area.addEventListener('click', function (event) {
         event.stopPropagation();
         show();
@@ -259,22 +429,37 @@
       });
     });
 
-    mapSvg.addEventListener('mouseleave', clearActive);
+    mapSvg.addEventListener('mouseleave', function () {
+      if (picker.hidden) {
+        clearActive();
+      }
+    });
     mapSvg.addEventListener('mouseover', function (event) {
-      if (!event.target.closest('.area')) {
+      if (!event.target.closest('.area') && picker.hidden) {
         clearActive();
       }
     });
 
     document.getElementById('picker-close').addEventListener('click', closePicker);
+    modalClose.addEventListener('click', closeMemberModal);
+    modal.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        closeMemberModal();
+      }
+    });
+
     document.addEventListener('click', function (event) {
-      if (!picker.contains(event.target)) {
+      if (!picker.contains(event.target) && !event.target.closest('.area')) {
         closePicker();
       }
     });
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
-        closePicker();
+        if (!modal.hidden) {
+          closeMemberModal();
+        } else if (!picker.hidden) {
+          closePicker();
+        }
       }
     });
   </script>
