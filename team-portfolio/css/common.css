@@ -3,6 +3,7 @@
    모든 페이지에서 함께 사용하는 기본 디자인
    ======================================== */
 
+
 /* 기본 여백과 박스 크기 초기화 */
 * { box-sizing: border-box; }
 html { min-height: 100%; scroll-behavior: smooth; }
