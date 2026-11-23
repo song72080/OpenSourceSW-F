@@ -748,3 +748,62 @@ main {
         margin-top: 23px;
     }
 }
+
+/* MEMBERS 프로필 사진 및 연락처 */
+.member-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 15px 0 18px;
+    padding: 12px;
+    background: #202328;
+    border: 1px solid #343a42;
+    border-radius: 5px;
+    min-width: 0;
+}
+.member-photo {
+    display: block;
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 2px solid #64758a;
+    background: #303944;
+}
+.member-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+.member-email {
+    color: #dce2e9;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+.member-github {
+    display: inline-block;
+    width: fit-content;
+    color: #9fb8d6;
+    font-size: 12px;
+    font-weight: 700;
+    border-bottom: 1px solid #667d99;
+}
+.member-email:hover, .member-github:hover { color: #fff; }
+.member-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dce2e9;
+    font-size: 25px;
+    font-weight: 700;
+}
+.member-contact-note { color: #929ba7; font-size: 12px; }
+@media (max-width: 600px) {
+    .member-profile { gap: 12px; padding: 10px; }
+    .member-photo { flex-basis: 66px; width: 66px; height: 66px; }
+    .member-email, .member-github { font-size: 11px; }
+}
