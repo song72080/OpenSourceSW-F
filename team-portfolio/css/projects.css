@@ -67,7 +67,15 @@
 /* 카드 안 버튼을 카드 아래 가운데에 맞춤 */
 .grid .card{display:flex;flex-direction:column;align-items:flex-start}
 .grid .card[hidden]{display:none}
-.grid .card .btn{margin-top:auto;align-self:center}
+.grid .card .btn{margin-top:12px;align-self:center}
+
+/* 두 번째 문단부터(사용 기술·제작 / 주요 기능·상태)를 카드 아래쪽에 모아 줄 맞춤 */
+.grid .card > p:nth-of-type(2){margin-top:auto}
+
+/* PC 화면: 제목 자리를 2줄 높이로 잡아 카드마다 설명 시작 위치를 같게 함 */
+@media(min-width:761px){
+  .grid .card h3{line-height:1.4;min-height:2.8em}
+}
 
 /* 사이트 이동 버튼 */
 .btn {
