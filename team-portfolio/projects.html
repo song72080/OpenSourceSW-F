@@ -1,228 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   Fork | 프로젝트
-  </title>
-  <link href="css/common.css" rel="stylesheet"/>
-  <link href="css/projects.css" rel="stylesheet"/>
- </head>
- <body>
-  <a class="skip" href="#content">
-   본문으로 이동
-  </a>
-  <header class="site-header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FORK 팀 프로젝트 갤러리입니다.">
+    <title>FORK | PROJECTS</title>
+    <link rel="stylesheet" href="css/team (2).css">
+    <link rel="stylesheet" href="css/projects.css">
+    <script defer src="js/projects.js"></script>
+</head>
+<body>
+    <header class="site-header">
         <div class="header-inner">
-            <a href="index.html" class="brand">
-                 <img src="images/logo.png"
-                     alt="FORK 로고"
-                     class="brand-logo">
-            </a>        
-
+            <a href="index.html" class="brand" aria-label="FORK 홈으로 이동">
+                <img src="images/logo.png" alt="FORK 로고" class="brand-logo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="brand-fallback">FORK</span>
+            </a>
             <nav class="main-nav" aria-label="주요 메뉴">
-                <a href="index.html">HOME</a>
-                <a href="about.html">ABOUT</a>
-                <a href="members.html">MEMBERS</a>
-                <a href="projects.html">PROJECTS</a>
-                <a href="activities.html">ARCHIVE</a>
+                <a href="index.html" >HOME</a>
+                <a href="about.html" >ABOUT</a>
+                <a href="members.html" >MEMBERS</a>
+                <a href="projects.html" class="active" aria-current="page">PROJECTS</a>
+                <a href="activities.html" >ACTIVITIES</a>
             </nav>
         </div>
     </header>
-  <main id="content">
-   <div class="page-head">
-    <div class="container">
-     <h1>
-      프로젝트 갤러리
-     </h1>
-     <p>
-      우리 팀의 기획과 구현 결과물
-     </p>
-    </div>
-   </div>
-   <section class="section">
-    <div class="container">
-     <div aria-label="프로젝트 분류" class="filters">
-      <button aria-pressed="true" class="filter" data-filter="all">
-       전체
-      </button>
-      <button aria-pressed="false" class="filter" data-filter="team">
-       팀 프로젝트
-      </button>
-      <button aria-pressed="false" class="filter" data-filter="personal">
-       개인 작업
-      </button>
-     </div>
-     <div class="grid">
-      <article class="card" data-category="team">
-       <span class="tag">
-        팀 프로젝트
-       </span>
-       <h3>
-        Fork 포트폴리오 웹사이트
-       </h3>
-       <p>
-        6명의 팀원이 HTML·CSS·JavaScript와 GitHub 협업을 통해 만드는 반응형 웹사이트입니다.
-       </p>
-       <p>
-        <b>
-         주요 기능:
-        </b>
-        팀 소개, 팀원 프로필, 지역 개념도, 프로젝트 갤러리, 활동 기록
-       </p>
-       <p>
-        <b>
-         상태:
-        </b>
-        개발용 초기 버전
-       </p>
-       <a class="btn secondary" href="index.html">
-        사이트 둘러보기
-       </a>
-      </article>
-      <article class="card" data-category="personal">
-       <span class="tag">
-        개인 작업
-       </span>
-       <h3>
-        RAMO
-       </h3>
-       <p>
-        Rating The Movie — 영화에 평점을 매기고 한 줄 리뷰를 남기며 다른 사용자와 영화 이야기를 나누는 영화 리뷰 커뮤니티입니다.
-       </p>
-       <p>
-        <b>
-         사용 기술:
-        </b>
-        HTML, CSS
-       </p>
-       <p>
-        <b>
-         제작:
-        </b>
-        박찬진
-       </p>
-       <a class="btn secondary" href="https://kitapark.github.io/RAMO-rating-the-movie-/" target="_blank" rel="noopener noreferrer">
-        사이트 방문
-       </a>
-      </article>
-      <article class="card" data-category="personal">
-       <span class="tag">
-        개인 작업
-       </span>
-       <h3>
-        FITLOG
-       </h3>
-       <p>
-        HTML과 CSS로 만든 운동 관리 웹사이트입니다. 메인 화면, 운동 목록과 설명, 오늘의 운동 체크리스트, 운동 전 가이드 페이지로 구성되어 있어요.
-       </p>
-       <p>
-        <b>
-         사용 기술:
-        </b>
-        HTML, CSS
-       </p>
-       <p>
-        <b>
-         제작:
-        </b>
-        황세윤
-       </p>
-       <a class="btn secondary" href="https://hsy84688-collab.github.io/fitlog-1/" target="_blank" rel="noopener noreferrer">
-        사이트 방문
-       </a>
-      </article>
-      <article class="card" data-category="personal">
-       <span class="tag">
-        개인 작업
-       </span>
-       <h3>
-        하루 루틴 시계
-       </h3>
-       <p>
-        24시간을 원형 시계 위에 나눠 놓고 요일별 루틴을 짜는 웹 앱입니다. 루틴을 추가·수정·삭제하고, 오늘 한 일을 체크하고, 일주일 계획을 한눈에 볼 수 있어요.
-       </p>
-       <p>
-        <b>
-         사용 기술:
-        </b>
-        HTML, CSS, JavaScript
-       </p>
-       <p>
-        <b>
-         제작:
-        </b>
-        정예진
-       </p>
-       <a class="btn secondary" href="https://aezin7.github.io/routine-clock/" target="_blank" rel="noopener noreferrer">
-        사이트 방문
-       </a>
-      </article>
-      <article class="card" data-category="personal">
-       <span class="tag">
-        개인 작업
-       </span>
-       <h3>
-        대한민국 박스오피스 TOP 10
-       </h3>
-       <p>
-        2015~2025년 연도별 박스오피스 TOP 10 영화를 보여주는 웹사이트입니다. 연도 버튼을 누르면 순위, 영화 제목, 감독, 제작 국가, 관객 수를 표로 볼 수 있고, 회원가입·로그인 화면도 있어요.
-       </p>
-       <p>
-        <b>
-         사용 기술:
-        </b>
-        HTML, CSS, JavaScript
-       </p>
-       <p>
-        <b>
-         제작:
-        </b>
-        송준혁
-       </p>
-       <a class="btn secondary" href="https://song72080.github.io/Movie-recode/" target="_blank" rel="noopener noreferrer">
-        사이트 방문
-       </a>
-      </article>
-      <article class="card" data-category="personal">
-       <span class="tag">
-        개인 작업
-       </span>
-       <h3>
-        RecoMovie
-       </h3>
-       <p>
-        영화 추천 웹사이트입니다. 영화 랭킹, OTT 추천, 리뷰 게시판, 사이트 소개 페이지가 있고 회원가입·로그인 화면도 있어요.
-       </p>
-       <p>
-        <b>
-         사용 기술:
-        </b>
-        HTML, CSS, JavaScript
-       </p>
-       <p>
-        <b>
-         제작:
-        </b>
-        김준휘
-       </p>
-       <a class="btn secondary" href="https://theremit.github.io/recomovie/" target="_blank" rel="noopener noreferrer">
-        사이트 방문
-       </a>
-      </article>
-     </div>
-    </div>
-   </section>
-  </main>
-  <footer class="site-footer">
+    <main id="main-content">
+        <section class="page-content">
+            <div class="page-intro">
+                <p class="eyebrow">OUR WORK</p>
+                <h1 class="page-title">Projects</h1>
+                <p class="page-description">FORK 팀의 프로젝트와 팀원들이 만든 개인 작업을 한곳에 모았습니다. 팀 프로젝트와 개인 작업을 나누어 볼 수 있습니다.</p>
+            </div>
+            <div class="filters" role="group" aria-label="프로젝트 분류">
+                <button type="button" class="filter" data-filter="all" aria-pressed="true">전체</button>
+                <button type="button" class="filter" data-filter="team" aria-pressed="false">팀 프로젝트</button>
+                <button type="button" class="filter" data-filter="personal" aria-pressed="false">개인 작업</button>
+            </div>
+            <div class="section-grid">
+                <article class="info-card project-card" data-category="team">
+                    <span class="card-number">팀 프로젝트</span>
+                    <h3>Fork 포트폴리오 웹사이트</h3>
+                    <p>5명의 팀원이 HTML·CSS·JavaScript와 GitHub 협업을 통해 만드는 반응형 웹사이트입니다. 각자 다른 길과 경험을 가진 팀원들이 한곳에 모여 함께 결과물을 만들어 간다는 의미를 담고 있습니다.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>주요 기능:</b> 팀 소개, 팀원 프로필, 지역 개념도, 프로젝트 갤러리, 활동 기록</p>
+                        <a class="primary-link" href="index.html" target="_blank" rel="noopener noreferrer">사이트 둘러보기</a>
+                    </div>
+                </article>
+                <article class="info-card project-card" data-category="personal">
+                    <span class="card-number">개인 작업</span>
+                    <h3>RAMO</h3>
+                    <p>Rating The Movie — 영화에 평점을 매기고 한 줄 리뷰를 남기며 다른 사용자와 영화 이야기를 나누는 영화 리뷰 커뮤니티입니다.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>사용 기술:</b> HTML, CSS</p>
+                        <p class="card-detail"><b>제작:</b> 박찬진</p>
+                        <a class="primary-link" href="https://kitapark.github.io/RAMO-rating-the-movie-/" target="_blank" rel="noopener noreferrer">사이트 방문</a>
+                    </div>
+                </article>
+                <article class="info-card project-card" data-category="personal">
+                    <span class="card-number">개인 작업</span>
+                    <h3>FITLOG</h3>
+                    <p>HTML과 CSS로 만든 운동 관리 웹사이트입니다. 메인 화면, 운동 목록과 설명, 오늘의 운동 체크리스트, 운동 전 가이드 페이지로 구성되어 있어요.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>사용 기술:</b> HTML, CSS</p>
+                        <p class="card-detail"><b>제작:</b> 황세윤</p>
+                        <a class="primary-link" href="https://hsy84688-collab.github.io/fitlog-1/" target="_blank" rel="noopener noreferrer">사이트 방문</a>
+                    </div>
+                </article>
+                <article class="info-card project-card" data-category="personal">
+                    <span class="card-number">개인 작업</span>
+                    <h3>하루 루틴 시계</h3>
+                    <p>24시간을 원형 시계 위에 나눠 놓고 요일별 루틴을 짜는 웹 앱입니다. 루틴을 추가·수정·삭제하고, 오늘 한 일을 체크하고, 일주일 계획을 한눈에 볼 수 있어요.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>사용 기술:</b> HTML, CSS, JavaScript</p>
+                        <p class="card-detail"><b>제작:</b> 정예진</p>
+                        <a class="primary-link" href="https://aezin7.github.io/routine-clock/" target="_blank" rel="noopener noreferrer">사이트 방문</a>
+                    </div>
+                </article>
+                <article class="info-card project-card" data-category="personal">
+                    <span class="card-number">개인 작업</span>
+                    <h3>대한민국 박스오피스 TOP 10</h3>
+                    <p>2015~2025년 연도별 박스오피스 TOP 10 영화를 보여주는 웹사이트입니다. 연도 버튼을 누르면 순위, 영화 제목, 감독, 제작 국가, 관객 수를 표로 볼 수 있고, 회원가입·로그인 화면도 있어요.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>사용 기술:</b> HTML, CSS, JavaScript</p>
+                        <p class="card-detail"><b>제작:</b> 송준혁</p>
+                        <a class="primary-link" href="https://song72080.github.io/Movie-recode/" target="_blank" rel="noopener noreferrer">사이트 방문</a>
+                    </div>
+                </article>
+                <article class="info-card project-card" data-category="personal">
+                    <span class="card-number">개인 작업</span>
+                    <h3>RecoMovie</h3>
+                    <p>영화 추천 웹사이트입니다. 영화 랭킹, OTT 추천, 리뷰 게시판, 사이트 소개 페이지가 있고 회원가입·로그인 화면도 있어요.</p>
+                    <div class="card-bottom">
+                        <p class="card-detail"><b>사용 기술:</b> HTML, CSS, JavaScript</p>
+                        <p class="card-detail"><b>제작:</b> 김준휘</p>
+                        <a class="primary-link" href="https://theremit.github.io/recomovie/" target="_blank" rel="noopener noreferrer">사이트 방문</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
         <div class="footer-inner">
-            <div>
+            <div class="footer-brand">
                 <h2>FORK.</h2>
                 <p>Different roots. One team.</p>
             </div>
-            <div class="footer-links">
-                <strong>EXPLORE</strong>
+            <div class="footer-links" aria-label="하단 메뉴">
                 <a href="about.html">About</a>
                 <a href="members.html">Members</a>
                 <a href="projects.html">Projects</a>
@@ -230,10 +115,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <small>© 2026 FORK TEAM</small>
+            <small>© 2026 FORK TEAM. All rights reserved.</small>
             <small>SOONCHUNHYANG UNIVERSITY</small>
         </div>
     </footer>
-  <script defer src="js/projects.js"></script>
- </body>
+</body>
 </html>
