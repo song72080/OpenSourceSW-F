@@ -1,0 +1,109 @@
+/* ACTIVITIES 전용 스타일: 공통 team (2).css 위에 적용 */
+.activities-page .activity-updated {
+    margin-top: 18px;
+    color: #9caec5;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.activities-page .activity-summary .info-card {
+    min-height: 0;
+}
+
+.activities-page .activity-summary strong {
+    font-size: 35px;
+    color: #fff;
+}
+
+.activities-page .activity-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.activities-page .filter {
+    padding: 9px 16px;
+    border: 1px solid #69798d;
+    border-radius: 3px;
+    background: transparent;
+    color: #dce2e9;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.activities-page .filter:hover,
+.activities-page .filter.is-active {
+    background: #3b4653;
+    border-color: #9caec5;
+}
+
+.activities-page :is(button, a):focus-visible {
+    outline: 2px solid #b8c6d8;
+    outline-offset: 4px;
+}
+
+.activities-page .activity-count {
+    color: #b7bec7;
+    font-size: 13px;
+}
+
+.activities-page .activity-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+}
+
+.activities-page [hidden] {
+    display: none !important;
+}
+
+.activities-page .activity-content h3 {
+    margin: 9px 0 13px;
+    font-size: 25px;
+    line-height: 1.4;
+}
+
+.activities-page .activity-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.activities-page .activity-repo {
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    .activities-page .activity-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .activities-page .activity-summary .info-card {
+        padding: 12px 8px;
+    }
+
+    .activities-page .activity-summary strong {
+        font-size: 26px;
+    }
+
+    .activities-page .activity-summary p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .activities-page .activity-content h3 {
+        font-size: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .activities-page .info-card {
+        transition: none;
+    }
+
+    .activities-page .info-card:hover {
+        transform: none;
+    }
+}

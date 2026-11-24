@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FORK 팀의 기획, 개발 및 협업 활동 기록입니다.">
+    <title>FORK | ACTIVITIES</title>
+    <link rel="stylesheet" href="css/team%20(2).css">
+    <link rel="stylesheet" href="css/activities.css">
+    <script src="js/activities.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand" aria-label="FORK 홈으로 이동">
+                <img src="images/logo.png" alt="FORK 로고" class="brand-logo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="brand-fallback">FORK</span>
+            </a>
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="members.html">MEMBERS</a>
+                <a href="projects.html">PROJECTS</a>
+                <a href="activities.html" class="active" aria-current="page">ACTIVITIES</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="page-content activities-page">
+            <div class="page-intro">
+                <p class="eyebrow">OUR JOURNEY</p>
+                <h1 class="page-title">Activities</h1>
+                <p class="page-description">FORK 팀의 기획부터 개발, 협업까지 프로젝트를 완성해 가는 과정을 소개합니다.</p>
+                <p class="activity-updated">LAST UPDATED · <time datetime="2026-11-24">2026.11.24</time></p>
+            </div>
+            <div class="section-grid activity-summary">
+                <article class="info-card"><strong>06</strong><p>TEAM MEMBERS</p></article>
+                <article class="info-card"><strong>05</strong><p>SITE PAGES</p></article>
+                <article class="info-card"><strong>01</strong><p>TEAM PROJECT</p></article>
+            </div>
+            <div class="content-divider"></div>
+            <section aria-labelledby="progress-title">
+                <div class="section-heading">
+                    <p class="eyebrow">PROJECT PROGRESS</p>
+                    <h2 id="progress-title">프로젝트 진행 과정</h2>
+                    <p class="section-description">GitHub 작업 기록을 바탕으로 주요 활동을 정리했습니다.</p>
+                </div>
+                <div class="activity-filters" role="group" aria-label="활동 유형 필터" hidden>
+                    <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+                    <button class="filter" type="button" data-filter="planning" aria-pressed="false">기획</button>
+                    <button class="filter" type="button" data-filter="development" aria-pressed="false">개발</button>
+                    <button class="filter" type="button" data-filter="collaboration" aria-pressed="false">협업</button>
+                    <button class="filter" type="button" data-filter="testing" aria-pressed="false">테스트</button>
+                </div>
+                <p id="filter-message" class="activity-count" aria-live="polite"></p>
+                <ol class="activity-timeline">
+                <li class="activity-item timeline-item" data-category="planning">
+                    <span class="timeline-number" aria-hidden="true">01</span>
+                    <article class="activity-content">
+                        <p class="card-number">기획</p>
+                        <h3>기획 및 역할 분담</h3>
+                        <p>팀명 FORK와 출신별 전국지도 콘셉트를 선정하고 여섯 명의 역할을 나누었습니다.</p>
+                        <div class="activity-links"></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="development">
+                    <span class="timeline-number" aria-hidden="true">02</span>
+                    <article class="activity-content">
+                        <p class="card-number">개발</p>
+                        <h3>공통 레이아웃 및 지도 개발</h3>
+                        <p>공통 헤더·푸터와 로고를 제작하고 지역별 지도 및 프로필 이동 기능을 구현했습니다.</p>
+                        <div class="activity-links"><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/5" target="_blank" rel="noopener noreferrer">PR #5 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/7" target="_blank" rel="noopener noreferrer">PR #7 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/9" target="_blank" rel="noopener noreferrer">PR #9 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/10" target="_blank" rel="noopener noreferrer">PR #10 ↗</a></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="development">
+                    <span class="timeline-number" aria-hidden="true">03</span>
+                    <article class="activity-content">
+                        <p class="card-number">개발</p>
+                        <h3>활동 기록 페이지 구현</h3>
+                        <p>활동 타임라인과 GitHub 협업 기록, 유형별 필터를 추가했습니다.</p>
+                        <div class="activity-links"><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/11" target="_blank" rel="noopener noreferrer">PR #11 ↗</a></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="collaboration">
+                    <span class="timeline-number" aria-hidden="true">04</span>
+                    <article class="activity-content">
+                        <p class="card-number">11월 23일 회의</p>
+                        <h3>회의 및 코드 리뷰 반영</h3>
+                        <p>지도에서 마우스를 벗어나면 안내가 사라지도록 하고 핀 말풍선과 지역별 확대 효과를 개선했습니다.</p>
+                        <div class="activity-links"><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/26" target="_blank" rel="noopener noreferrer">PR #26 ↗</a></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="development">
+                    <span class="timeline-number" aria-hidden="true">05</span>
+                    <article class="activity-content">
+                        <p class="card-number">11월 24일 등록 PR</p>
+                        <h3>프로필 팝업 및 페이지 디자인 통일</h3>
+                        <p>지도 클릭 시 프로필 팝업과 MEMBERS 이동 버튼을 추가하고 팀 소개, 팀원 프로필, 프로젝트 페이지 및 공통 CSS를 정리했습니다.</p>
+                        <div class="activity-links"><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/27" target="_blank" rel="noopener noreferrer">PR #27 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/30" target="_blank" rel="noopener noreferrer">PR #30 ↗</a></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="testing">
+                    <span class="timeline-number" aria-hidden="true">06</span>
+                    <article class="activity-content">
+                        <p class="card-number">테스트 기록</p>
+                        <h3>기능 및 반응형 화면 점검</h3>
+                        <p>PR 설명에 지도 hover, 키보드 선택, 프로필 이동, PC·모바일 화면 확인 결과가 기록되어 있습니다.</p>
+                        <div class="activity-links"><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/26" target="_blank" rel="noopener noreferrer">PR #26 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/27" target="_blank" rel="noopener noreferrer">PR #27 ↗</a> <a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/30" target="_blank" rel="noopener noreferrer">PR #30 ↗</a></div>
+                    </article>
+                </li>
+                <li class="activity-item timeline-item" data-category="testing">
+                    <span class="timeline-number" aria-hidden="true">07</span>
+                    <article class="activity-content">
+                        <p class="card-number">예정</p>
+                        <h3>최종 통합 테스트 및 발표</h3>
+                        <p>전체 페이지 통합 점검, 최종 배포 및 발표 완료 여부는 아직 확인되지 않았습니다.</p>
+                        <div class="activity-links"></div>
+                    </article>
+                </li>
+                </ol>
+            </section>
+            <section class="subsection" aria-labelledby="work-title">
+                <p class="eyebrow">COLLABORATION</p>
+                <h2 id="work-title">GitHub 협업 및 개발 결과물</h2>
+                <div class="section-grid">
+                    <article class="info-card"><span class="card-number">MAP / PR #26</span><h3>지도 인터랙션</h3><p>지역별 핀 말풍선과 확대 효과 개선 기록입니다.</p><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/26" target="_blank" rel="noopener noreferrer">PR #26 ↗</a></article>
+                    <article class="info-card"><span class="card-number">PROFILE / PR #27</span><h3>팀원 프로필 팝업</h3><p>지역 선택과 프로필 사진, 상세 페이지 이동 기능입니다.</p><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/27" target="_blank" rel="noopener noreferrer">PR #27 ↗</a></article>
+                    <article class="info-card"><span class="card-number">DESIGN / PR #30</span><h3>페이지 디자인 통일</h3><p>팀 소개, 팀원 정보, 프로젝트 구성 및 공통 스타일 적용 기록입니다.</p><a class="text-link" href="https://github.com/song72080/OpenSourceSW-F/pull/30" target="_blank" rel="noopener noreferrer">PR #30 ↗</a></article>
+                </div>
+                <a class="primary-link activity-repo" href="https://github.com/song72080/OpenSourceSW-F" target="_blank" rel="noopener noreferrer">GitHub 저장소 보기 ↗</a>
+            </section>
+            <section class="activity-note subsection">
+                <p class="eyebrow">NEXT STEP</p>
+                <h2>최종 점검 및 발표</h2>
+                <p>페이지 연결과 반응형 화면을 통합 점검하고 최종 배포 및 발표 결과를 기록할 예정입니다.</p>
+            </section>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><h2>FORK.</h2><p>Different roots. One team.</p></div>
+            <div class="footer-links" aria-label="하단 메뉴">
+                <a href="about.html">About</a>
+                <a href="members.html">Members</a>
+                <a href="projects.html">Projects</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>© 2026 FORK TEAM. All rights reserved.</small>
+            <small>SOONCHUNHYANG UNIVERSITY</small>
+        </div>
+    </footer>
+</body>
+</html>

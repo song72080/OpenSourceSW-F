@@ -1,0 +1,267 @@
+/* FORK 공통 Header & Footer */
+.site-header, .site-footer {
+    font-family: Arial, sans-serif;
+}
+
+.site-header *, .site-footer * {
+    box-sizing: border-box;
+}
+
+.site-header a, .site-footer a {
+    text-decoration: none;
+}
+
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #17191f;
+}
+
+.logo-mark {
+    background: #17191f;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: #17191f;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    color: #64748b;
+}
+
+/* Footer */
+.site-footer {
+    background: #17191f;
+    color: white;
+    padding: 48px 24px 20px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer-inner h2 {
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.footer-inner p {
+    color: #9ca3af;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 36px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #9ca3af;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+    }
+
+    .main-nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+/* 미리보기 페이지 전용 */
+.preview-main {
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9ca3af;
+}
+/* FORK Dark Theme */
+body {
+    background-color: #242629;
+    color: #f5f5f5;
+}
+
+/* Header */
+.site-header {
+    background-color: #242629;
+    border-bottom: 1px solid #45484c;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #191b1e;
+    color: #f5f5f5;
+    padding: 24px 0;
+}
+
+.site-footer .footer-inner {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Logo */
+.brand-logo {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+/* 헤더 글씨 흰색 */
+.site-header .brand,
+.site-header .main-nav a {
+    color: #ffffff;
+}
+
+/* 메뉴에 마우스를 올렸을 때 */
+.site-header .main-nav a:hover {
+    color: #b0b0b0;
+}
+
+/* 푸터 가로 정렬 및 높이 축소 */
+.site-footer {
+    background-color: #191b1e;
+    padding: 20px 0;
+    min-height: 0;
+}
+
+.site-footer .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* FORK 소개 */
+.site-footer .footer-inner h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+}
+
+.site-footer .footer-inner p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* 푸터 메뉴 가로 정렬 */
+.site-footer .footer-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-footer .footer-links strong {
+    display: none;
+}
+
+.site-footer .footer-links a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.site-footer .footer-links a:hover {
+    color: #ffffff;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .site-footer .footer-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .site-footer .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* 푸터를 화면 맨 아래에 배치 */
+html, body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 메인 영역이 남는 공간을 차지 */
+.preview-main {
+    flex: 1;
+}
+
+/* 푸터 */
+.site-footer {
+    margin-top: auto;
+}
